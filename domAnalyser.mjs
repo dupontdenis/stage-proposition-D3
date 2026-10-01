@@ -1,16 +1,8 @@
 // Analyse du DOM et génération du dataset pour D3
 
 export function analyzeDOM() {
-  const tags = [];
-
-  const explore = (el) => {
-    for (const child of el.children) {
-      tags.push(child.nodeName);
-      explore(child);
-    }
-  };
-
-  explore(document.body);
+  // Récupère toutes les balises du DOM
+  const tags = [...document.querySelectorAll("body *")].map((el) => el.tagName);
 
   const categoriser = (rate) => {
     if (rate < 0.05) return "VeryRare";
@@ -37,5 +29,5 @@ export function analyzeDOM() {
     });
   }
 
-  return [...tagMap.values()]; // dataset final pour D3
+  return [...tagMap.values()];
 }
