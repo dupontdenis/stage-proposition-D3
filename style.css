@@ -1,0 +1,93 @@
+#tag-bars-vertical {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+  justify-items: center;
+  align-items: end;
+  /* ✔ les barres partent du bas */
+}
+
+#tag-bars-vertical,
+#tag-title {
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 300;
+  color: #333;
+}
+
+#tag-title {
+  font-size: 1.4rem;
+  margin: 16px 0;
+}
+
+.vbar {
+  width: 40px;
+  border-radius: 6px;
+  position: relative;
+}
+
+.vbar[data-category="VeryRare"] {
+  height: 40px;
+  background: #d0e8ff;
+}
+
+.vbar[data-category="Rare"] {
+  height: 70px;
+  background: #d8ffd0;
+}
+
+.vbar[data-category="Medium"] {
+  height: 110px;
+  background: #fff4d0;
+}
+
+.vbar[data-category="Frequent"] {
+  height: 150px;
+  background: #ffe0e0;
+}
+
+.vbar[data-category="Dominant"] {
+  height: 200px;
+  background: #f0d0ff;
+}
+
+.vlabel {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.hover-count {
+  position: absolute;
+  right: -10px;
+  top: -20px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2px 6px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity .2s;
+}
+
+.vbar[data-category="VeryRare"]+.hover-count {
+  font-size: 0.55rem;
+}
+
+.vbar[data-category="Rare"]+.hover-count {
+  font-size: 0.65rem;
+}
+
+.vbar[data-category="Medium"]+.hover-count {
+  font-size: 0.75rem;
+}
+
+.vbar[data-category="Frequent"]+.hover-count {
+  font-size: 0.9rem;
+}
+
+.vbar[data-category="Dominant"]+.hover-count {
+  font-size: 1.05rem;
+}
+
+.vbar:hover+.hover-count {
+  opacity: 1;
+}
